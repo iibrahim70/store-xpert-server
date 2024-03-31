@@ -19,7 +19,20 @@ app.use(cookieParser());
 
 // default route
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  const serverStatus = {
+    status: 'running',
+    message: 'Store Xpert API is operational and running smoothly.',
+    timestamp: new Date().toISOString(),
+    version: 'v1.0.1',
+    uptime: process.uptime(),
+    author: 'Store Xpert Team',
+    contact: {
+      email: 'contact@storexpert.com',
+      website: 'https://www.storexpert.com/contact',
+    },
+  };
+
+  res.json(serverStatus);
 });
 
 // application routes

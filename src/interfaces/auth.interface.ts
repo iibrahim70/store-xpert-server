@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
 
 import { Model } from 'mongoose';
-import { USER_ROLE } from '../constants/user.constant';
+import { USER_ROLE } from '../constants/auth.constant';
 
 export interface IUser {
   fullName: string;
   email: string;
   phoneNumber: string;
   password: string;
-  avatar: string;
-  role: 'admin' | 'user';
+  role: 'user' | 'store-owner' | 'store-assistant' | 'admin';
 }
 
 export type TUserRole = keyof typeof USER_ROLE;

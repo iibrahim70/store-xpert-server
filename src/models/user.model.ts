@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IUser, UserModel } from '../interfaces/user.interface';
+import { IUser, UserModel } from '../interfaces/auth.interface';
 import bcrypt from 'bcrypt';
 import config from '../config';
 
@@ -24,12 +24,9 @@ const userSchema = new Schema<IUser, UserModel>(
       required: true,
       select: 0,
     },
-    avatar: {
-      type: String,
-      required: true,
-    },
     role: {
       type: String,
+      enum: ['user', 'store-owner', 'store-assistant', 'admin'],
       default: 'user',
     },
   },

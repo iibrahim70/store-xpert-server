@@ -5,7 +5,7 @@ import ApiError from '../errors/ApiError';
 import config from '../config';
 import { JwtPayload } from 'jsonwebtoken';
 import { verifyToken } from '../utils/auth.utils';
-import { TUserRole } from '../interfaces/user.interface';
+import { TUserRole } from '../interfaces/auth.interface';
 import { User } from '../models/user.model';
 
 const validateAuth = (...requiredRoles: TUserRole[]) => {

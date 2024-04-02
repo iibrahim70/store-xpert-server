@@ -20,10 +20,6 @@ const registerSchema = z.object({
       required_error: 'Password is required.',
       invalid_type_error: 'Password must be a string.',
     }),
-    avatar: z.string({
-      required_error: 'Avatar URL is required.',
-      invalid_type_error: 'Avatar URL must be a string.',
-    }),
   }),
 });
 
@@ -42,7 +38,7 @@ const loginSchema = z.object({
   }),
 });
 
-export const UserValidations = {
+export const AuthValidations = {
   registerSchema,
   loginSchema,
 };

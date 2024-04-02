@@ -1,11 +1,10 @@
 import httpStatus from 'http-status';
 import ApiError from '../errors/ApiError';
-import { IUser } from '../interfaces/user.interface';
+import { IUser } from '../interfaces/auth.interface';
 import { User } from '../models/user.model';
 import bcrypt from 'bcrypt';
 import { createToken } from '../utils/auth.utils';
 import config from '../config';
-// import config from '../config';
 
 const registerUserFromDB = async (newUserData: IUser) => {
   // Check if a user with the provided email already exists
@@ -19,7 +18,7 @@ const registerUserFromDB = async (newUserData: IUser) => {
   return result;
 };
 
-const LoginUserFromDB = async (userCredentials: Partial<IUser>) => {
+const loginUserFromDB = async (userCredentials: Partial<IUser>) => {
   // Check if a user with the provided email exists
   const existingUser = await User.isUserExistsByEmail(
     userCredentials.email as string,
@@ -61,7 +60,7 @@ const LoginUserFromDB = async (userCredentials: Partial<IUser>) => {
   };
 };
 
-export const UserServices = {
+export const AuthServices = {
   registerUserFromDB,
-  LoginUserFromDB,
+  loginUserFromDB,
 };

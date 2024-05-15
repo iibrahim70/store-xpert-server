@@ -36,7 +36,7 @@ const userSchema = new Schema<IUser, UserModel>(
     status: {
       type: String,
       enum: ['in-progress', 'blocked'],
-      default: 'blocked',
+      default: 'in-progress',
     },
   },
   { timestamps: true }, // Adds createdAt and updatedAt timestamps
@@ -57,8 +57,9 @@ userSchema.methods.toJSON = function () {
   const userObject = this.toObject();
 
   // Remove password and role fields from the user object
-  delete userObject.password;
-  delete userObject.role;
+  delete userObject?.password;
+  delete userObject?.role;
+  delete userObject?.isBlocked;
 
   return userObject;
 };

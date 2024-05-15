@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IUser, UserModel } from '../interfaces/auth.interface';
+import { IUser, UserModel } from '../interfaces/user.interface';
 import bcrypt from 'bcrypt';
 import config from '../config';
 
@@ -28,6 +28,15 @@ const userSchema = new Schema<IUser, UserModel>(
       type: String,
       enum: ['user', 'store-owner', 'store-assistant', 'admin'],
       default: 'user',
+    },
+    isBlocked: {
+      type: Boolean,
+      default: false,
+    },
+    status: {
+      type: String,
+      enum: ['in-progress', 'blocked'],
+      default: 'blocked',
     },
   },
   { timestamps: true }, // Adds createdAt and updatedAt timestamps

@@ -13,10 +13,10 @@ async function main() {
     );
 
     app.listen(config.port, () => {
-      console.log(`App is listening on port ${config.port}`);
+      console.log(`App is listening on port: ${config.port}`);
     });
   } catch (error) {
-    console.log('MongoDB Error', error);
+    console.log('MongoDB Error:', error);
     process.exit(1);
   }
 }

@@ -7,11 +7,11 @@ import notFound from './middlewares/notFound';
 
 const app = express();
 
-// parsers
+// middlewares
 app.use(express.json());
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://store-xpert.netlify.app/'],
+    origin: ['http://localhost:5173', 'https://store-xpert.netlify.app'],
     credentials: true,
   }),
 );
@@ -25,10 +25,10 @@ app.get('/', (req: Request, res: Response) => {
     timestamp: new Date().toISOString(),
     version: 'v1.0.1',
     uptime: process.uptime(),
-    author: 'Store Xpert Team',
+    developedBy: 'Ibrahim Khalil',
     contact: {
-      email: 'contact@storexpert.com',
-      website: 'https://www.storexpert.com/contact',
+      email: 'iibrahiiim.dev@gmail.com',
+      website: 'https://iibrahim-dev.netlify.app/',
     },
   };
 

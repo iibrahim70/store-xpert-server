@@ -5,7 +5,7 @@ import ApiError from '../errors/ApiError';
 import config from '../config';
 import { JwtPayload } from 'jsonwebtoken';
 import { verifyToken } from '../utils/auth.utils';
-import { TUserRole } from '../interfaces/auth.interface';
+import { TUserRole } from '../interfaces/user.interface';
 import { User } from '../models/user.model';
 
 const validateAuth = (...requiredRoles: TUserRole[]) => {
@@ -28,10 +28,10 @@ const validateAuth = (...requiredRoles: TUserRole[]) => {
       decoded = result as JwtPayload;
     });
 
-    // Checking if the user exists
-    const user = await User.isUserExistsByEmail(decoded?.email);
+    // Checking if the user exists in the database
+    const existingUser = await User.isUserExistsByEmail(decoded?.email);
 
-    if (!user) {
+    if (!existingUser) {
       throw new ApiError(httpStatus.NOT_FOUND, httpStatus['404_MESSAGE']);
     }
 

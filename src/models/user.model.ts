@@ -6,18 +6,10 @@ import config from '../config';
 // Define the schema for the User model
 const userSchema = new Schema<IUser, UserModel>(
   {
-    fullName: {
-      type: String,
-      required: true,
-    },
     email: {
       type: String,
       required: true,
       unique: true,
-    },
-    phoneNumber: {
-      type: String,
-      required: true,
     },
     password: {
       type: String,

@@ -4,9 +4,7 @@ import { Model } from 'mongoose';
 import { USER_ROLE } from '../constants/user.constant';
 
 export interface IUser {
-  fullName: string;
   email: string;
-  phoneNumber: string;
   password: string;
   role: 'user' | 'store-owner' | 'store-assistant' | 'admin';
   status: 'in-progress' | 'blocked';

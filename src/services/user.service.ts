@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 import { createToken } from '../utils/auth.utils';
 import config from '../config';
 
-const registerUserFromDB = async (newUserData: IUser) => {
+const createUserFromDB = async (newUserData: IUser) => {
   // Check if a user with the provided email already exists
   if (await User.isUserExistsByEmail(newUserData.email)) {
     // If user already exists, throw a CONFLICT ApiError
@@ -62,7 +62,7 @@ const loginUserFromDB = async (userCredentials: Partial<IUser>) => {
   };
 };
 
-export const AuthServices = {
-  registerUserFromDB,
+export const UserServices = {
+  createUserFromDB,
   loginUserFromDB,
 };

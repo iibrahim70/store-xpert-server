@@ -1,10 +1,10 @@
 import httpStatus from 'http-status';
 import catchAsync from '../utils/catchAsync';
 import sendResponse from '../utils/sendResponse';
-import { AuthServices } from '../services/auth.service';
+import { UserServices } from '../services/user.service';
 
-const registerUser = catchAsync(async (req, res) => {
-  const result = await AuthServices.registerUserFromDB(req.body);
+const createUser = catchAsync(async (req, res) => {
+  const result = await UserServices.createUserFromDB(req.body);
 
   return sendResponse(res, {
     statusCode: httpStatus.CREATED,
@@ -15,7 +15,7 @@ const registerUser = catchAsync(async (req, res) => {
 });
 
 const loginUser = catchAsync(async (req, res) => {
-  const result = await AuthServices.loginUserFromDB(req.body);
+  const result = await UserServices.loginUserFromDB(req.body);
 
   return sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -25,7 +25,7 @@ const loginUser = catchAsync(async (req, res) => {
   });
 });
 
-export const AuthControllers = {
-  registerUser,
+export const UserControllers = {
+  createUser,
   loginUser,
 };

@@ -1,6 +1,6 @@
 import httpStatus from 'http-status';
-import catchAsync from '../utils/catchAsync';
-import sendResponse from '../utils/sendResponse';
+import catchAsync from '../helpers/catchAsync';
+import sendResponse from '../helpers/sendResponse';
 import { UserServices } from '../services/user.service';
 
 const createUser = catchAsync(async (req, res) => {

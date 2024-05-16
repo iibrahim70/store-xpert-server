@@ -3,7 +3,7 @@ import ApiError from '../errors/ApiError';
 import { IUser } from '../interfaces/user.interface';
 import { User } from '../models/user.model';
 import bcrypt from 'bcrypt';
-import { createToken } from '../utils/auth.utils';
+import { createToken } from '../helpers/auth.utils';
 import config from '../config';
 
 const createUserFromDB = async (newUserData: IUser) => {
